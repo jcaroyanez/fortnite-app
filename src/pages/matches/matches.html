@@ -1,0 +1,48 @@
+<!--
+  Generated template for the MatchesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+    <ion-refresher (ionRefresh)="refresh($event)">
+      <ion-refresher-content 
+        pullingIcon="arrow-dropdown" 
+        pullingText="Suelte para recargar" 
+        refreshingSpinner="circles"
+        refreshingText="Cargando...">
+      </ion-refresher-content>
+    </ion-refresher>
+ <div class="content-header">
+      <div class="title">
+        <p>PARTIDAS RESIENTES</p>
+      </div>
+      <div class="thunderbolt">
+    
+      </div>
+      <div class="matches">
+        <div class="content-icon">
+            <ion-icon name="md-close" (click)="close()"></ion-icon>
+        </div>
+      </div>
+  </div>
+  <div *ngFor="let item of listMatches" class="container-matches"  [ngClass]="{'container-matches-success':item.top1 == 1,'container-matches-danger':item.top1 != 1}">
+    <div class="content-matches-1">
+      <p class="text-date">{{item.dateCollected | date:'short'}}</p>
+      <p class="value" *ngIf="item.top1 == 1">GANDA</p>
+      <p class="value"  *ngIf="item.top1 != 1">PERDIDA</p>
+    </div>
+    <div class="content-matches">
+      <p class="text">MODO</p>
+      <p class="value">{{item.playlist}}</p>
+    </div>
+    <div class="content-matches">
+        <p class="text">SCORE</p>
+        <p class="value">{{item.score}}</p>
+    </div>
+    <div class="content-matches">
+        <p class="text">KILL</p>
+        <p class="value">{{item.kills}}</p>
+    </div>
+  </div>
+</ion-content>

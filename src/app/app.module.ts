@@ -5,26 +5,43 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
+import { StastPageModule } from '../pages/stast/stast.module';
+import { StorePageModule } from '../pages/store/store.module';
+import { ChallengesPageModule } from '../pages/challenges/challenges.module';
+import { FaIconComponent } from '../components/fa-icon.component';
+import { StoreProvider } from '../providers/store/store';
+import { ChallengerProvider } from '../providers/challenger/challenger';
+import { StatsProvider } from '../providers/stats/stats';
+//import { AdMobPro } from '@ionic-native/admob-pro';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    FaIconComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    TabsPageModule,
+    StastPageModule,
+    StorePageModule,
+    ChallengesPageModule,
+    IonicModule.forRoot(MyApp,{tabsPlacement: 'top'})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    FaIconComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StoreProvider,
+    ChallengerProvider,
+    StatsProvider,
+    //AdMobPro
   ]
 })
 export class AppModule {}

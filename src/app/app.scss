@@ -14,3 +14,98 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.title.title-md {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 70%;
+    text-align: center;
+}
+//play #003791
+//xbox #107c10
+
+
+.container-platform-xbox{
+    z-index: 2;
+    position: relative;
+    height: 40px;
+    background:#107c10; 
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
+}
+
+.container-platform-play{
+    z-index: 2;
+    position: relative;
+    height: 40px;
+    background:#003791; 
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
+}
+
+.container-platform-pc{
+    z-index: 2;
+    position: relative;
+    height: 40px;
+    background:#7B1FA2; 
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
+}
+
+.icon-platform{
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-platform-selected{
+    width: 37px;
+    height: 37px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.toolbar .searchbar-md{
+    padding: 0px !important;
+}
+.toolbar-md{
+    padding: 0px !important;
+}
+
+.toolbar-ios-danger .toolbar-background-ios{
+    background:#D50000 !important;
+}
+
+.modal-matches{
+    background: rgba($color: #000000, $alpha: 0.8) !important;
+    .modal-wrapper {
+        margin: 4vh 1em 4vh !important;
+        height: 91vh !important;
+        .ion-page {
+            border-radius: 8px !important;
+            ion-content {
+                background: transparent;  
+            }
+        }
+    }
+    .ios{
+        .modal-wrapper {
+            top: 0px;
+        }
+    } 
+}

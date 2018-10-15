@@ -1,0 +1,264 @@
+<!--
+  Generated template for the StastPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+  <ion-searchbar color="danger"
+    [placeholder]="textPlaceholder"
+    [(ngModel)]="username"
+    [showCancelButton]="Cancelar"
+    (keyup.enter)="search($event)">
+  </ion-searchbar>
+  </ion-navbar>
+  <div [class]="classContainer">
+     <img src="assets/icon/xbox.png" [ngClass]="classPlatformXbox ? 'icon-platform-selected' : 'icon-platform'" (click)="xbox()">
+     <img src="assets/icon/playstation.png" [ngClass]="classPlatformPlay ? 'icon-platform-selected' : 'icon-platform'" (click)="playStation()">
+     <img src="assets/icon/pc.png" [ngClass]="classPlatformPc ? 'icon-platform-selected' : 'icon-platform'" (click)="pc()">
+  </div>
+</ion-header>
+<ion-content  class="has-header">
+  <div *ngIf="!dataStats" class="start">
+    <img src="assets/imgs/sad_face.png">
+    <p>Ingrese datos para buscar</p>
+  </div>
+  <div class="container-matches" *ngIf="dataStats">
+      <div class="matches-id" (click)="openModal()">
+          <p>VER PARTIDAS RESIENTES</p>
+      </div>
+  </div>
+  <div *ngIf="dataStats" class="container">
+    <div class="content-header">
+      <div class="title">
+          <p>TODA LA VIDA</p>
+      </div>
+        <div class="thunderbolt">
+
+        </div>
+       <div class="matches">
+        <p>{{dataStats.MatchesPlayed}} Partidas</p>
+       </div>
+    </div>
+    <div class="punctuation">
+        <img src="assets/imgs/{{dataStats.trnCustomer}}.png">
+        <div class="value-punctuation-1">
+          <p class="text">MEJOR CALIFICACIÓN TRN</p>
+          <p class="value">{{dataStats.trn}} <span class="{{dataStats.solos.rankCustomer}}">{{ dataStats.solos.rankCustomer | uppercase}}</span></p>
+        </div>
+        <!--<div class="value-punctuation-2">
+          <p class="text">RANGO</p>
+          <p class="value">{{dataStats.rank}}</p>
+        </div>-->
+        <div class="value-punctuation-3">
+          <p class="text">PUNTUACIÓN</p>
+          <p class="value">{{dataStats.score}}</p>
+        </div>
+    </div>
+  <div class="content-stats">
+    <div class="value-stats">
+      <p class="text-stats">GANADAS</p>
+      <p class="text-value">{{dataStats.wins}}</p>
+    </div>
+    <div class="value-stats">
+        <p class="text-stats">GANADAS %</p>
+        <p class="text-value">{{dataStats.winP}}</p>
+    </div>
+    <div class="value-stats">
+        <p class="text-stats">MUERTES</p>
+        <p class="text-value">{{dataStats.kills}}</p>
+    </div>
+    <div class="value-stats">
+        <p class="text-stats">K/D</p>
+        <p class="text-value">{{dataStats.kd}}</p>
+    </div>
+  </div>  
+  </div>
+  <div class="container-stats" *ngIf="dataStats">
+      <div class="content-header-solo">
+          <div class="title-solo">
+              <p>SOLO</p>
+          </div>
+            <div class="thunderbolt-solo">
+    
+            </div>
+           <div class="matches-solo">
+            <p>{{dataStats.solos.matches}} Partidas</p>
+           </div>
+        </div>
+        <div class="trn" >
+          <img  src="assets/imgs/{{dataStats.solos.rankCustomer}}.png">
+          <div class="value-stats">
+              <p class="text-stats">CLASIFICACIÓN TRN</p>
+              <p class="text-value">{{dataStats.solos.trnRating}} <span class="{{dataStats.solos.rankCustomer}}">{{ dataStats.solos.rankCustomer | uppercase}}</span></p>
+          </div>
+          <div class="value-stats">
+              <p class="text-stats">RANGO</p>
+              <p class="text-value"># {{dataStats.solos.rank}}</p>
+          </div>
+        </div> 
+        <div class="content">
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS</p>
+              <p class="text-value text-font-value">{{dataStats.solos.wins}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES</p>
+              <p class="text-value text-font-value">{{dataStats.solos.kills}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS %</p>
+              <p class="text-value text-font-value">{{dataStats.solos.winP}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">K/D</p>
+              <p class="text-value text-font-value">{{dataStats.solos.kd}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 10</p>
+              <p class="text-value text-font-value">{{dataStats.solos.top10}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.solos.kpg}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 25</p>
+              <p class="text-value text-font-value">{{dataStats.solos.top25}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION</p>
+              <p class="text-value text-font-value">{{dataStats.solos.score}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.solos.scorePerMatch}}</p>
+            </div>
+        </div>
+  </div>
+  <div class="container-stats" *ngIf="dataStats">
+      <div class="content-header-duos">
+          <div class="title-duos">
+              <p>DUOS</p>
+          </div>
+            <div class="thunderbolt-duos">
+    
+            </div>
+           <div class="matches-duos">
+            <p>{{dataStats.duos.matches}} Partidas</p>
+           </div>
+        </div>
+        <div class="trn" >
+          <img  src="assets/imgs/{{dataStats.duos.rankCustomer}}.png">
+          <div class="value-stats">
+              <p class="text-stats">CLASIFICACIÓN TRN</p>
+              <p class="text-value">{{dataStats.duos.trnRating}} <span class="{{dataStats.duos.rankCustomer}}">{{ dataStats.duos.rankCustomer | uppercase}}</span></p>
+          </div>
+          <div class="value-stats">
+              <p class="text-stats">RANGO</p>
+              <p class="text-value"># {{dataStats.duos.rank}}</p>
+          </div>
+        </div> 
+        <div class="content">
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS</p>
+              <p class="text-value text-font-value">{{dataStats.duos.wins}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES</p>
+              <p class="text-value text-font-value">{{dataStats.duos.kills}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS %</p>
+              <p class="text-value text-font-value">{{dataStats.duos.winP}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">K/D</p>
+              <p class="text-value text-font-value">{{dataStats.duos.kd}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 5</p>
+              <p class="text-value text-font-value">{{dataStats.duos.top5}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.duos.kpg}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 12</p>
+              <p class="text-value text-font-value">{{dataStats.duos.top12}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION</p>
+              <p class="text-value text-font-value">{{dataStats.duos.score}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.duos.scorePerMatch}}</p>
+            </div>
+        </div>
+  </div>
+  <div class="container-stats" *ngIf="dataStats">
+      <div class="content-header-squad">
+          <div class="title-squad">
+              <p>SQUADS</p>
+          </div>
+            <div class="thunderbolt-squad">
+    
+            </div>
+           <div class="matches-squad">
+            <p>{{dataStats.squads.matches}} Partidas</p>
+           </div>
+        </div>
+        <div class="trn" >
+          <img  src="assets/imgs/{{dataStats.duos.rankCustomer}}.png">
+          <div class="value-stats">
+              <p class="text-stats">CLASIFICACIÓN TRN</p>
+              <p class="text-value">{{dataStats.squads.trnRating}} <span class="{{dataStats.squads.rankCustomer}}">{{ dataStats.squads.rankCustomer | uppercase}}</span></p>
+          </div>
+          <div class="value-stats">
+              <p class="text-stats">RANGO</p>
+              <p class="text-value"># {{dataStats.squads.rank}}</p>
+          </div>
+        </div> 
+        <div class="content">
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS</p>
+              <p class="text-value text-font-value">{{dataStats.squads.wins}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES</p>
+              <p class="text-value text-font-value">{{dataStats.squads.kills}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">GANADAS %</p>
+              <p class="text-value text-font-value">{{dataStats.squads.winP}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">K/D</p>
+              <p class="text-value text-font-value">{{dataStats.squads.kd}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 3</p>
+              <p class="text-value text-font-value">{{dataStats.squads.top3}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">MUERTES POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.squads.kpg}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">TOP 6</p>
+              <p class="text-value text-font-value">{{dataStats.squads.top6}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION</p>
+              <p class="text-value text-font-value">{{dataStats.squads.score}}</p>
+            </div>
+            <div class="value-stats">
+              <p class="text-stats text-font">PUNTUACION POR PARTIDA</p>
+              <p class="text-value text-font-value">{{dataStats.squads.scorePerMatch}}</p>
+            </div>
+        </div>
+  </div>
+</ion-content>

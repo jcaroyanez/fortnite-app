@@ -1,0 +1,102 @@
+page-matches {
+    .scroll-content{
+        background: #1f1f1f;
+    }
+    .container-matches-success{
+        background: #1f1f1f;
+        border-left: 2px solid #5cfc7b;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        padding-left: 10px;
+    }
+    .container-matches-danger{
+        background: #1f1f1f;
+        border-left: 2px solid #ff3333;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        padding-left: 10px;
+    }
+    .content-matches{
+        display: inline-block;
+        width: 20%;
+        .text{
+            display: block;
+            color: #9a9a9a;
+        }
+        .value{
+            display: block;
+            color: #fff;
+        }
+    }
+    .text-date{
+        display: block;
+        color: #9a9a9a;
+        font-size: 10px;
+    }
+    .content-matches-1{
+        display: inline-block;
+        width: 35%;
+        .text{
+            display: block;
+            color: #9a9a9a;
+        }
+        .value{
+            display: block;
+            color: #fff;
+        }
+    }
+    
+    .content-header{
+        background: #b2b2b2;
+        color: #000;
+        height: 40px;
+        display: inline-flex;
+        width: 100% !important;
+    }
+    .content-icon{
+        width: 100%;
+        text-align: right;
+        padding-right: 15px;
+        ion-icon{
+            font-size: 25px;
+        }
+    }
+    
+        .thunderbolt{
+            width: 17%;
+            -webkit-clip-path: polygon(100% 0%,100% 100%,54% 40%,56% 67.5%,0% 0%);
+            clip-path: polygon(100% 0%,100% 100%,54% 40%,56% 67.5%,0% 0%);
+            background: #727272;
+        }
+    
+        .title{
+            float: left;
+            height: 100%;
+            width: 77%;
+            display: flex;
+            align-items: center; 
+            padding-left: 15px;
+            p{
+                margin: 0;
+                display: inline-block;
+                font-weight: 700;
+                font-size: 12px;
+            }
+        }
+    
+        .matches{
+            float: right;
+            height: 100%;
+            width: 57%;
+            display: flex;
+            align-items: center;
+            background: #727272;
+        }
+    
+        .container{
+            padding: 10px;
+            .content{
+                background: #727272;
+            }
+       }
+}
