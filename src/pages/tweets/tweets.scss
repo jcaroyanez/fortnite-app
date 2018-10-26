@@ -1,0 +1,55 @@
+page-tweets {
+    .scroll-content{
+        padding: 0px !important;
+        background: #f1f1f1;
+    }
+
+    .content-header{
+        display: flex;
+        align-items: center;
+        div{
+            display: inline-block;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                display: inline-block;
+                margin: 8px;
+            }
+        }
+    }
+
+    .text-info{
+        margin: 8px;
+        h3{
+            font-weight: 700;
+            font-size: 18px;
+        }
+        p{
+            color: gray;
+            font-size: 13px;
+        }
+    }
+
+    .cotent-text{
+        padding: 5px 20px 20px 20px;
+        font-size: 17px;
+        img{
+            margin-top: 13px;
+            border-radius: 8px;
+            width: 100%;
+            height: 220px;
+        }
+        video{
+            margin-top: 12px;
+            height: 220px;
+            max-width: 100%;
+            width: 100% !important;
+        }
+    }
+
+    .text-date{
+        margin-top: 5px;
+        color: gray;
+    }
+}

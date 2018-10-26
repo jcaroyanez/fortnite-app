@@ -1,0 +1,26 @@
+page-category {
+    .scroll-content{
+        padding: 0px !important;
+    }
+    ion-card {
+        position: relative;
+        text-align: center;
+        img{
+            height: 222px;
+        }
+      }
+    
+      .card-title {
+        background: rgba(0, 0, 0, 0.5);
+        padding-top: 1em;
+        position: absolute;
+        padding: 9px;
+        bottom: 0;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+      }
+    
+    
+}

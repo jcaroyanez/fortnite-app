@@ -13,8 +13,25 @@ import { FaIconComponent } from '../components/fa-icon.component';
 import { StoreProvider } from '../providers/store/store';
 import { ChallengerProvider } from '../providers/challenger/challenger';
 import { StatsProvider } from '../providers/stats/stats';
-//import { AdMobPro } from '@ionic-native/admob-pro';
+import { AdMobFree } from '@ionic-native/admob-free';
+import { DatabaseProvider } from '../providers/database/database';
+import { CategoryPageModule } from '../pages/category/category.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { SubCategoryPageModule } from '../pages/sub-category/sub-category.module';
+import { TweetsPageModule } from '../pages/tweets/tweets.module';
+import { TweetsProvider } from '../providers/tweets/tweets';
 
+const config = {
+  apiKey: "AIzaSyAibXoIlVVbTJuIiFqyiyYHswDdBPV73XA",
+  authDomain: "fornie-es.firebaseapp.com",
+  databaseURL: "https://fornie-es.firebaseio.com",
+  projectId: "fornie-es",
+  storageBucket: "fornie-es.appspot.com",
+  messagingSenderId: "910000022844"
+};
 
 @NgModule({
   declarations: [
@@ -23,11 +40,18 @@ import { StatsProvider } from '../providers/stats/stats';
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(MyApp,{tabsPlacement: 'top', tabsHideOnSubPages: true,}),
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
     TabsPageModule,
     StastPageModule,
     StorePageModule,
     ChallengesPageModule,
-    IonicModule.forRoot(MyApp,{tabsPlacement: 'top'})
+    CategoryPageModule,
+    SubCategoryPageModule,
+    TweetsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +65,9 @@ import { StatsProvider } from '../providers/stats/stats';
     StoreProvider,
     ChallengerProvider,
     StatsProvider,
-    //AdMobPro
+    AdMobFree,
+    DatabaseProvider,
+    TweetsProvider
   ]
 })
 export class AppModule {}

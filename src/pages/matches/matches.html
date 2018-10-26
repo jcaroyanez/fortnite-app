@@ -29,7 +29,7 @@
   <div *ngFor="let item of listMatches" class="container-matches"  [ngClass]="{'container-matches-success':item.top1 == 1,'container-matches-danger':item.top1 != 1}">
     <div class="content-matches-1">
       <p class="text-date">{{item.dateCollected | date:'short'}}</p>
-      <p class="value" *ngIf="item.top1 == 1">GANDA</p>
+      <p class="value" *ngIf="item.top1 == 1">GANADA</p>
       <p class="value"  *ngIf="item.top1 != 1">PERDIDA</p>
     </div>
     <div class="content-matches">

@@ -10,7 +10,8 @@
     [placeholder]="textPlaceholder"
     [(ngModel)]="username"
     [showCancelButton]="Cancelar"
-    (keyup.enter)="search($event)">
+    (keydown)="handler($event)"
+    >
   </ion-searchbar>
   </ion-navbar>
   <div [class]="classContainer">
@@ -26,7 +27,7 @@
   </div>
   <div class="container-matches" *ngIf="dataStats">
       <div class="matches-id" (click)="openModal()">
-          <p>VER PARTIDAS RESIENTES</p>
+          <p>VER PARTIDAS RECIENTES</p>
       </div>
   </div>
   <div *ngIf="dataStats" class="container">
@@ -47,10 +48,10 @@
           <p class="text">MEJOR CALIFICACIÓN TRN</p>
           <p class="value">{{dataStats.trn}} <span class="{{dataStats.solos.rankCustomer}}">{{ dataStats.solos.rankCustomer | uppercase}}</span></p>
         </div>
-        <!--<div class="value-punctuation-2">
+        <div class="value-punctuation-2">
           <p class="text">RANGO</p>
           <p class="value">{{dataStats.rank}}</p>
-        </div>-->
+        </div>
         <div class="value-punctuation-3">
           <p class="text">PUNTUACIÓN</p>
           <p class="value">{{dataStats.score}}</p>

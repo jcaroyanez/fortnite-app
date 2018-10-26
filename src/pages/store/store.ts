@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController, LoadingController } from 'ionic-angular';
 import { StastPage } from '../stast/stast';
 import { StoreProvider } from '../../providers/store/store';
-//import { AdMobPro } from '@ionic-native/admob-pro';
+import { AdMobFree, AdMobFreeInterstitialConfig,AdMobFreeBannerConfig } from '@ionic-native/admob-free';
+ 
 /**
  * Generated class for the StorePage page.
  *
@@ -36,28 +37,19 @@ export class StorePage {
             private toastCrtrl:ToastController,
             private _storeProvider:StoreProvider,
             private loaderCrtl:LoadingController,
-            /*private admob: AdMobPro*/
+            private admobFree:AdMobFree
             ) {
+    this.pushAdmobBanner();                    
     this.getItemStore();
     this.classContainer = "container-platform-pc";
     this.classPlatformPc = true;
     this.textPlaceholder = "Ingrese su usuario de Epic";
-    var admobid = {
-      interstitial: 'ca-app-pub-8609138301620623/8983883160'
-    };
-    /*this.admob.prepareInterstitial({
-      adId: admobid.interstitial,
-      isTesting: true,
-      autoShow: false
-    });
-    this.admob.onAdFailLoad().subscribe((res) => {
-      alert("error"+JSON.stringify(res));
-    })*/
   }
 
   ionViewDidLoad() {
 
   }
+
 
   getItemStore(event?){
       let loader = this.loaderCrtl.create({
@@ -85,26 +77,37 @@ export class StorePage {
   }
 
   refresh(event){
-    //this.admob.showInterstitial();
+    this.pushAdmob();
     this.getItemStore(event);    
   }
 
-  search(event) {
-    console.log(this.username,this.viewCtrl.name)
-    if(!this.username){
-      let toast = this.toastCrtrl.create({
-        message: 'Ingrese un criterio de busqueda',
-        duration: 3000,
-        position: 'middle'
-      });
-      toast.present();
-    }else{
-      if(this.viewCtrl.name != 'StastPage'){
-         this.navCtrl.setRoot(StastPage);
-      }else{
-        this.searchStats();
-      }
-    }
+  pushAdmob(){
+    const bannerConfig: AdMobFreeInterstitialConfig = {
+      id: 'ca-app-pub-8609138301620623/8983883160',
+      isTesting: false,
+      autoShow: true,
+     };
+     this.admobFree.interstitial.config(bannerConfig);
+     this.admobFree.interstitial.prepare()
+       .then(() => {
+        this.admobFree.interstitial.show();
+       })
+       .catch(e => console.log(e));
+  }
+
+  pushAdmobBanner(){
+    const bannerConfig: AdMobFreeBannerConfig = {
+      id: 'ca-app-pub-8609138301620623/5369562472',
+      isTesting: false,
+      autoShow: true,
+     };
+     this.admobFree.banner.config(bannerConfig);
+     
+     this.admobFree.banner.prepare()
+       .then(() => {
+        this.admobFree.banner.show();
+       })
+       .catch(e => { JSON.stringify(e) });
   }
 
   searchStats(){

@@ -31,36 +31,22 @@
       </ion-refresher-content>
     </ion-refresher>
   <p class="title-store">OBJETOS DIARIOS</p>
-  <div class="first-container">
-      <ion-grid>
-        <ion-row>
-          <ion-col *ngFor="let item of BRDailyStorefront" class="{{item.rarity}}" col-5>
-              <div class="container-img">
-                <img src="{{item.imageUrl}}" class="store-img">
-              </div>
-              <div class="container-text" text-wrap>
-                <h3 text-wrap>{{item.name}}</h3>
-                <p>{{item.vBucks}} pavos</p>
-              </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>  
-  </div>
+  <ion-card *ngFor="let item of BRDailyStorefront" class="{{item.rarity}}">
+    <img src="{{item.imageUrl}}"/>
+    <p class="card-title" text-wrap>{{item.name}}</p>
+    <div class="card-subtitle">
+       <p  text-center>{{item.vBucks}}</p>
+       <img src="assets/imgs/pavos.png">
+    </div>
+  </ion-card>
 
   <p class="title-store">OBJETOS DESTACADOS</p>
-  <div class="second-container">
-      <ion-grid>
-        <ion-row>
-          <ion-col *ngFor="let item of BRWeeklyStorefront" class="{{item.rarity}}" col-5>
-              <div class="container-img">
-                <img src="{{item.imageUrl}}" class="store-img">
-              </div>
-              <div class="container-text" text-wrap>
-                <h3 text-wrap>{{item.name}}</h3>
-                <p>{{item.vBucks}} pavos</p>
-              </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>  
-  </div>
+  <ion-card *ngFor="let item of BRWeeklyStorefront" class="{{item.rarity}}">
+    <img src="{{item.imageUrl}}"/>
+    <p class="card-title" text-wrap>{{item.name}}</p>
+    <div class="card-subtitle">
+        <p  text-center>{{item.vBucks}}</p>
+        <img src="assets/imgs/pavos.png">
+     </div>
+  </ion-card>
 </ion-content>

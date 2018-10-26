@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController, LoadingController, ModalController } from 'ionic-angular';
 import { StatsProvider } from '../../providers/stats/stats';
 import { MatchesPage } from '../matches/matches';
-
+import { AdMobFree, AdMobFreeInterstitialConfig, AdMobFreeBannerConfig } from '@ionic-native/admob-free'; 
 /**
  * Generated class for the StastPage page.
  *
@@ -35,7 +35,8 @@ export class StastPage {
       private viewCtrl:ViewController,
       private toastCtrl:ToastController,
       private loaderCtrl:LoadingController,
-      private modalCtrl:ModalController
+      private modalCtrl:ModalController,
+      private admobFree: AdMobFree
       ) {
         this.username = "";
         this.classContainer = "container-platform-pc";
@@ -47,8 +48,34 @@ export class StastPage {
   ionViewDidLoad() {
     
   }
+
+  pushAdmob(){
+    const bannerConfig: AdMobFreeInterstitialConfig = {
+      id: 'ca-app-pub-8609138301620623/8983883160',
+      isTesting: false,
+      autoShow: true,
+     };
+     this.admobFree.interstitial.config(bannerConfig);
+     this.admobFree.interstitial.prepare()
+       .then(() => {
+        this.admobFree.interstitial.show();
+       })
+       .catch(e => console.log(e));
+       const bannerConfig2: AdMobFreeBannerConfig = {
+        id: 'ca-app-pub-8609138301620623/5369562472',
+        isTesting: false,
+        autoShow: true,
+       };
+       this.admobFree.banner.config(bannerConfig2);
+       
+       this.admobFree.banner.prepare()
+         .then(() => {
+          this.admobFree.banner.show();
+         })
+         .catch(e => { JSON.stringify(e) });   
+  }
   
-  search(event) {
+  search() {
     console.log(this.username,this.viewCtrl.name)
     if(!this.username){
       let toast = this.toastCtrl.create({
@@ -58,15 +85,17 @@ export class StastPage {
       });
       toast.present();
     }else{
-      if(this.viewCtrl.name != 'StastPage'){
-         this.navCtrl.setRoot(StastPage);
-      }else{
         this.searchStats();
-      }
     }
   }
 
+  handler(ev) { 
+    if(ev.keyCode == 13)
+     this.search();
+   }
+
   searchStats(){
+    this.pushAdmob();
       let loader = this.loaderCtrl.create({content:'Cargando...'});
       loader.present();
       this._statsProvider.getLifeTime(this.platform,this.username).subscribe((res:any) => {
