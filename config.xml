@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.fornite.es" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Fornite tracker ES</name>
-    <description>buscador de stats fornite</description>
+<widget id="io.fornais.app" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Fornais</name>
+    <description>buscador de stats fornais</description>
     <author email="tucodigo.p@gmail.com" href="https://github.com/jockamasagui">Jose luis caro yanez</author>
     <content src="index.html" />
     <access origin="*" />
@@ -85,5 +85,8 @@
     <plugin name="cordova-plugin-admob-free" spec="^0.21.0">
         <variable name="ADMOB_APP_ID" value="ca-app-pub-8609138301620623~7990365690" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-android-support-gradle-release" spec="^2.0.1">
+        <variable name="ANDROID_SUPPORT_VERSION" value="27.+" />
+    </plugin>
+    <engine name="android" spec="^7.1.4" />
 </widget>

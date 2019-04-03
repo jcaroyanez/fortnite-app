@@ -30,7 +30,7 @@ export class TabsPage {
 
   pushAdmob(){
     const bannerConfig: AdMobFreeBannerConfig = {
-      id: 'ca-app-pub-8609138301620623/5369562472',
+      id: 'ca-app-pub-8609138301620623/2213910318',
       isTesting: false,
       autoShow: true,
      };

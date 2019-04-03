@@ -51,7 +51,7 @@ export class StastPage {
 
   pushAdmob(){
     const bannerConfig: AdMobFreeInterstitialConfig = {
-      id: 'ca-app-pub-8609138301620623/8983883160',
+      id: 'ca-app-pub-8609138301620623/9709256959',
       isTesting: false,
       autoShow: true,
      };
@@ -62,7 +62,7 @@ export class StastPage {
        })
        .catch(e => console.log(e));
        const bannerConfig2: AdMobFreeBannerConfig = {
-        id: 'ca-app-pub-8609138301620623/5369562472',
+        id: 'ca-app-pub-8609138301620623/2213910318',
         isTesting: false,
         autoShow: true,
        };

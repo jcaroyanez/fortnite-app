@@ -1,10 +1,10 @@
 {
   "name": "fornite-app",
-  "app_id": "",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  },"proxies": [
+  },
+  "type": "ionic-angular",
+  "proxies": [
     {
       "path": "/auth",
       "proxyUrl": "https://api.twitter.com/oauth2/token"
